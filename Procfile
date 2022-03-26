@@ -1,0 +1,1 @@
+worker: java -jar build/libs/zynk-bot-1.0-all.jar
