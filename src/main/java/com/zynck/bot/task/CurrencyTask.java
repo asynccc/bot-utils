@@ -3,6 +3,7 @@ package com.zynck.bot.task;
 import com.zynck.bot.Application;
 import lombok.SneakyThrows;
 import net.dv8tion.jda.api.EmbedBuilder;
+import org.apache.commons.lang3.RandomUtils;
 import org.json.JSONObject;
 
 import java.awt.*;
@@ -16,6 +17,14 @@ import java.util.Objects;
 import java.util.TimerTask;
 
 public class CurrencyTask extends TimerTask {
+
+    private final String[] messages = {
+            "Sou o milior, milior bixeiro PB-JP",
+            "E Deus disse, o melhor bixeiro é aquele que aposta com risco!",
+            "Só dou calote naqueles que merecem :punch:",
+            "Sou um falso cria mesmo, não me escondo de ninguém",
+            "Amigo do peito é colete, o resto é bala :handshake:"
+    };
 
     @SneakyThrows
     @Override
@@ -46,6 +55,7 @@ public class CurrencyTask extends TimerTask {
         embed.setColor(Color.GREEN);
         embed.addField(emote + " Precificação", ":moneybag: **(Atual)** Preço mais baixo **" + lowPrice + "**" + "\n" + "Preço mais alto **" + highPrice + "**", true);
         embed.addField(":earth_americas: Conversão de Moeda ", name, true);
+        embed.setFooter(messages[RandomUtils.nextInt(0, messages.length - 1)]);
 
         channel.editMessageEmbedsById("957336619483004958", embed.build()).queue();
     }
