@@ -21,9 +21,9 @@ public class CurrencyTask extends TimerTask {
     private final String[] messages = {
             "Sou o milior, milior bixeiro PB-JP",
             "E Deus disse, o melhor bixeiro é aquele que aposta com risco!",
-            "Só dou calote naqueles que merecem :punch:",
+            "Só dou calote naqueles que merecem",
             "Sou um falso cria mesmo, não me escondo de ninguém",
-            "Amigo do peito é colete, o resto é bala :handshake:"
+            "Amigo do peito é colete, o resto é bala"
     };
 
     @SneakyThrows
