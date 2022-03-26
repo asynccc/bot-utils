@@ -36,6 +36,6 @@ build.mustRunAfter test
 
 jar {
     manifest {
-        attributes 'Class-Path': '/libs/zynk-bot-1.0.jar', 'Main-Class': 'com.zynk.bot.Main'
+        attributes 'Class-Path': '/libs/bot-utils-1.0-SNAPSHOT-all.jar', 'Main-Class': 'com.zynck.bot.Application'
     }
 }
