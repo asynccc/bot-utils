@@ -1,1 +1,1 @@
-worker: java -jar build/libs/zynk-bot-1.0-all.jar
+worker: java -jar build/libs/bot-utils-1.0-SNAPSHOT-all.jar
