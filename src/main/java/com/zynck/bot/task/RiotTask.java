@@ -66,7 +66,7 @@ public class RiotTask extends TimerTask {
         embed.setThumbnail("https://ddragon.leagueoflegends.com/cdn/12.3.1/img/profileicon/" + summoner.getProfileIconId() + ".png");
         embed.addField(":grinning: Ele conseguiu?", gotIt.toString(), false);
         embed.addBlankField(false);
-        embed.addField(":mega: Informações", "Nível: **" + summoner.getSummonerLevel() + "**\nÚltima atualização: **" + date.format(data) + " - " + hourFormat.format(date),true);
+        embed.addField(":mega: Informações", "Nível: **" + summoner.getSummonerLevel() + "**\n**" + date.format(data) + " - " + hourFormat.format(data) + "**",true);
         embed.addField(":video_game: Últimos jogos", "**0G**",true);
         embed.addField(":mag: Status pessoal", rank.toString(),true);
         embed.setFooter(messages[RandomUtils.nextInt(0, messages.length - 1)]);
