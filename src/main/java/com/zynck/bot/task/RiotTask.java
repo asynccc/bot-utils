@@ -8,6 +8,12 @@ import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.awt.*;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.TimerTask;
 
@@ -40,13 +46,17 @@ public class RiotTask extends TimerTask {
             var games = leagueEntry.getWins() + leagueEntry.getLosses();
             var percentage = (leagueEntry.getWins() * 100) / games;
 
-            rank.append("<:platinum_3:957351954537926676> ").append(StringUtils.capitalize(leagueEntry.getTier().toLowerCase())).append(" ").append(leagueEntry.getRank()).append("\n")
+            rank.append("<:platinum:958518249279082546> ").append(StringUtils.capitalize(leagueEntry.getTier().toLowerCase())).append(" ").append(leagueEntry.getRank()).append("\n")
                     .append("**").append(leagueEntry.getLeaguePoints()).append("PDL │ ** **")
                     .append(leagueEntry.getWins()).append("W/")
                     .append(leagueEntry.getLosses()).append("L**")
                     .append("\n Winrate: **").append(percentage).append("%**");
         });
 
+        var timestamp = new Timestamp(Instant.now().toEpochMilli());
+        var data = new Date(timestamp.getTime());
+        var date = DateFormat.getDateInstance(DateFormat.FULL, new Locale("pt", "BR"));
+        var hourFormat = new SimpleDateFormat("HH:mm");
 
         var embed = new EmbedBuilder();
         embed.setColor(Color.RED);
@@ -56,7 +66,7 @@ public class RiotTask extends TimerTask {
         embed.setThumbnail("https://ddragon.leagueoflegends.com/cdn/12.3.1/img/profileicon/" + summoner.getProfileIconId() + ".png");
         embed.addField(":grinning: Ele conseguiu?", gotIt.toString(), false);
         embed.addBlankField(false);
-        embed.addField(":mega: Informações", "Nível: **" + summoner.getSummonerLevel() + "**",true);
+        embed.addField(":mega: Informações", "Nível: **" + summoner.getSummonerLevel() + "**\nÚltima atualização: **" + date.format(data) + " - " + hourFormat.format(date),true);
         embed.addField(":video_game: Últimos jogos", "**0G**",true);
         embed.addField(":mag: Status pessoal", rank.toString(),true);
         embed.setFooter(messages[RandomUtils.nextInt(0, messages.length - 1)]);
